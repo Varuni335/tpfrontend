@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think Plus Education - IPMAT, CAT & CLAT Coaching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>') no-repeat;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .feature-card p {
+            color: #718096;
+        }
+
+        /* Courses Section */
+        .courses {
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            padding: 4rem 2rem;
+        }
+
+        .courses-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .course-content {
+            padding: 2rem;
+        }
+
+        .course-content h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .course-content p {
+            color: #718096;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .course-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Blog Section */
+        .blog {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .blog-thumbnail {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .blog-content p {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .blog-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #cbd5e0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="https://thinkpluseducation.com/" class="logo">Think Plus+</a>
+            <ul class="nav-links">
+                <li><a href="https://thinkpluseducation.com/">Home</a></li>
+                <li><a href="https://thinkpluseducation.com/#courses">Courses</a></li>
+                <li><a href="https://thinkpluseducation.com/about">About</a></li>
+                <li><a href="https://thinkpluseducation.com/blogs">Blog</a></li>
+                <li><a href="https://thinkpluseducation.com/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Unlock Your Potential with Think Plus Education</h1>
+            <p>Premier coaching for IPMAT, CAT & CLAT - Your pathway to top institutions</p>
+            <a href="https://thinkpluseducation.com/#courses" class="cta-button">Explore Our Courses</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Why Choose Think Plus?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Expert Faculty</h3>
+                <p>Learn from experienced professionals who have mastered the art of competitive exam preparation</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Comprehensive Study Material</h3>
+                <p>Access meticulously designed content covering every aspect of your target exam</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💯</div>
+                <h3>Proven Results</h3>
+                <p>Join thousands of successful students who achieved their dreams with our guidance</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Personalized Approach</h3>
+                <p>Get individual attention and customized strategies to maximize your performance</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <h2 class="section-title">Our Courses</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-image">📊</div>
+                <div class="course-content">
+                    <h3>CAT Preparation</h3>
+                    <p>Comprehensive coaching for Common Admission Test to secure your seat in IIMs and top B-Schools</p>
+                    <a href="https://thinkpluseducation.com/courses" class="course-button">Learn More</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image">🎓</div>
+                <div class="course-content">
+                    <h3>IPMAT Coaching</h3>
+                    <p>Specialized training for Integrated Programme in Management Aptitude Test for IIM admissions</p>
+                    <a href="https://thinkpluseducation.com/courses" class="course-button">Learn More</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image">⚖️</div>
+                <div class="course-content">
+                    <h3>CLAT Preparation</h3>
+                    <p>Expert guidance for Common Law Admission Test to enter premier National Law Universities</p>
+                    <a href="https://thinkpluseducation.com/courses" class="course-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog" id="blog">
+        <h2 class="section-title">Latest Insights</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-thumbnail">CAT Guide</div>
+                <div class="blog-content">
+                    <h3>Cracking CAT - The Complete Guide</h3>
+                    <p>Want to secure a seat in one of the IIMs or Top B-schools? Here are some tips on how to crack CAT</p>
+                    <a href="https://thinkpluseducation.com/blog-view/cracking-cat---the-complete-guide" class="blog-link">Explore More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-thumbnail">Study Tips</div>
+                <div class="blog-content">
+                    <h3>Effective Study Techniques</h3>
+                    <p>Discover proven methods to maximize your learning efficiency and retention for competitive exams</p>
+                    <a href="https://thinkpluseducation.com/blogs" class="blog-link">Read More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-thumbnail">Success Stories</div>
+                <div class="blog-content">
+                    <h3>Student Success Stories</h3>
+                    <p>Get inspired by the journeys of our students who achieved top ranks in their exams</p>
+                    <a href="https://thinkpluseducation.com/blogs" class="blog-link">View Stories →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Think Plus Education</h3>
+                <p>Empowering students to achieve their academic dreams through quality coaching and personalized guidance.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="https://thinkpluseducation.com/">Home</a></li>
+                    <li><a href="https://thinkpluseducation.com/courses">Courses</a></li>
+                    <li><a href="https://thinkpluseducation.com/about">About Us</a></li>
+                    <li><a href="https://thinkpluseducation.com/blogs">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="https://thinkpluseducation.com/courses">CAT Preparation</a></li>
+                    <li><a href="https://thinkpluseducation.com/courses">IPMAT Coaching</a></li>
+                    <li><a href="https://thinkpluseducation.com/courses">CLAT Training</a></li>
+                    <li><a href="https://thinkpluseducation.com/courses">Mock Tests</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="https://thinkpluseducation.com/contact">Get in Touch</a></li>
+                    <li><a href="https://thinkpluseducation.com/contact">Visit Our Center</a></li>
+                    <li><a href="https://thinkpluseducation.com/contact">Admissions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Think Plus Education. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
